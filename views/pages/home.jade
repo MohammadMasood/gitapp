@@ -1,0 +1,25 @@
+div.col-sm-12
+ h1 Home Page
+ p(align='justify') {{ message }}
+
+ div.col-sm-12
+ table.table.table-border
+  thead
+   tr
+    th Name
+    th Email
+    th Password	
+    th Mobile No
+    th Address	
+    th Action		
+
+  tbody
+   tr(ng-repeat="user in users | filter: user.name | orderBy:'name'")
+    td {{user.name}}
+    td {{user.email}}
+    td {{user.password}}
+    td {{user.mobile_no}}	
+    td {{user.address}}		
+    td 
+     a(href="edit_user/{{user.id}}",title="Edit") 
+      i.fa.fa-edit

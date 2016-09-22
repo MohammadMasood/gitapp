@@ -1,0 +1,35 @@
+extends layout
+
+block body
+  div(ng-controller='AppCtrl')
+     
+   nav.navbar.navbar-default(ng-controller="HeaderController")
+    div.col-sm-3.navbar-header
+     h4 Node Js Demo
+    ul.nav.navbar-nav 
+     li(ng-class="{ active: isActive('/home')}")
+      a(href='home') Home
+     li(ng-class="{ active: isActive('/about-us')}")
+      a(href='about-us') About Us
+     li(ng-class="{ active: isActive('/registration')}")
+      a(href='registration') Registration
+  
+  
+  block content
+   
+       
+  div.container
+        
+    div(ng-view)
+
+    
+
+  script(src='js/jquery.min.js')	
+  script(src='js/bootstrap.min.js')	  
+  script(src='/angular/angular.js')
+  script(src='/angular/angular-route.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')

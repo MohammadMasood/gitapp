@@ -1,0 +1,45 @@
+div.col-sm-12
+ h1 New Registration
+ div.row 		
+  div.col-sm-12 	
+   p(align='justify') {{ message }}
+   div.col-sm-4
+    form.form-horizontal(method="post",ng-submit="RegisterUser()",name="UsersForm")
+     
+     div.form-group
+      div.alert.alert-success(ng-show="MsgError") 
+       a.close(href="#",data-dismiss="alert",aria-label="close") &times;
+       strong Error! Can not save user
+       
+      div.alert.alert-success(ng-show="MsgSuccess") 
+       a.close(href="#",data-dismiss="alert",aria-label="close") &times;
+       strong Success!
+       User Added Successfully 	   	   	   
+     div.form-group
+      label.control-label(form="name",required="required") Name
+      input.form-control(id="name",name="name",ng-model="User.name",required)
+      span.error(ng-show="UsersForm.name.$error.required && UsersForm.name.$touched") 	Enter Name 
+     
+     div.form-group
+      label.control-label(form="email") Email
+      input.form-control(type="email",id="email",name="email",ng-model="User.email",required)
+      span.error(ng-show="UsersForm.email.$error.required && UsersForm.email.$touched") 	Enter Email	 
+      span.error(ng-show="UsersForm.email.$error.email && UsersForm.email.$touched") 	Enter Valid Email	 	  
+     
+     div.form-group
+      label.control-label(form="password") Password
+      input.form-control(id="password",name="password",ng-model="User.password",required)
+      span.error(ng-show="UsersForm.password.$error.required && UsersForm.password.$touched") 	Enter Password 	 	  
+     
+     div.form-group
+      label.control-label(form="mobile_no") Mobile No
+      input.form-control(id="mobile_no",name="mobile_no",ng-model="User.mobile_no",required)
+      span.error(ng-show="UsersForm.mobile_no.$error.required && UsersForm.mobile_no.$touched") 	Enter Mobile No 	 	  
+     
+     div.form-group
+      label.control-label(form="address") Address
+      textarea.form-control(id="address",name="address",ng-model="User.address",required)
+       span.error(ng-show="UsersForm.address.$error.required && UsersForm.address.$touched") Enter Address
+     
+     div.form-group
+      input.btn.btn-primary.pull-right(type="submit",value="Submit",ng-disabled="UsersForm.name.$error.required && UsersForm.name.$touched || UsersForm.email.$error.required && UsersForm.email.$touched || UsersForm.email.$error.email || UsersForm.password.$error.required && UsersForm.password.$touched || UsersForm.mobile_no.$error.required && UsersForm.mobile_no.$touched || UsersForm.address.$error.required && UsersForm.address.$touched")	  
